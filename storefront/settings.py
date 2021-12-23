@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@mg#%k8+p1idjm$h@=2z7quj@jqcbv^329ln49krc59*lbw+^*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,6 @@ MIDDLEWARE = [
 
 ]
 
-
 ROOT_URLCONF = 'storefront.urls'
 
 TEMPLATES = [
@@ -75,11 +74,7 @@ TEMPLATES = [
     },
 ]
 
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
+
 
 WSGI_APPLICATION = 'storefront.wsgi.application'
 
@@ -154,6 +149,3 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False,
     }
-
-mimetypes
-mimetypes.add_type("application/javascript", ".js", True)
