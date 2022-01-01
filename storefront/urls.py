@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),
+    path('store/', include('store.urls')),
 
 ]
 # add debug toolbar in urlpatterns
