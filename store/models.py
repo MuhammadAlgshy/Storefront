@@ -91,7 +91,7 @@ class Order(models.Model):
 
     class Meta:
         permissions = [
-            ('cancel_order', 'Can cancel order')
+                ('cancel_order', 'Can cancel order')
         ]
 
 
