@@ -48,8 +48,8 @@ $ python manage.py createsuperuser
 # Run django server
 $python manage.py runserver
 ```
-- Login to admin area, open Browser and go to: http://127.0.0.1:8000/admin/
-- Check the list of available APIs, open Browser and go to: http://127.0.0.1:8000/store/
+- Login to admin area, open browser and go to: http://127.0.0.1:8000/admin/
+- Check the list of available APIs, open browser and go to: http://127.0.0.1:8000/store/
 
 Enjoy the experiance.
 
