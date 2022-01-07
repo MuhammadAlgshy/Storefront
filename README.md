@@ -44,5 +44,7 @@ $Python manage.py migrate
 # Run django server
 $python manage.py runserver
 ```
+- Check the list of available APIs, open Browser and go to: http://127.0.0.1:8000/store/
+
 Enjoy the experiance.
 
