@@ -12,10 +12,15 @@ $ git clone git@github.com:MuhammadAlgshy/Storefront.git
 ```bash
 $pip install -r requirments.txt
 ```
+
 - Setting Configuration
 ```bash
-# Set the Django security key (storefront/settings --> SECRET_KEY)
-SECRET_KEY = 'django-insecure-_YOURSECURITYCODE_'
+# OPTIONAL, change debug = false (storefront/settings --> DEBUG)
+DEBUG = False
+```
+```bash
+# Set the Django secret key (storefront/settings --> SECRET_KEY)
+SECRET_KEY = 'django-insecure-_YOURSECRETCODE_'
 ```
 ```bash
 # Set your database settings (storefront/settings --> DATABASES)
