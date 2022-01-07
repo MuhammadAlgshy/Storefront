@@ -28,7 +28,7 @@ DATABASES = {
     }
 }
 ```
-- Datbase Migration
+- Database Migration
 ```bash
 # Go to you working directory on terminal/cmd
 $ cd _workingdirectory_
