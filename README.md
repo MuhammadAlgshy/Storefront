@@ -5,10 +5,14 @@ _Training Material_
 
 # Installation
 - Clone the repository to your working folder
+```bash
+$ git clone git@github.com:MuhammadAlgshy/Storefront.git
+```
 - Install requirments 
 ```bash
 $pip install -r requirments.txt
 ```
+- Setting Configuration
 ```bash
 # Set the Django security key (storefront/settings --> SECRET_KEY)
 SECRET_KEY = 'django-insecure-_YOURSECURITYCODE_'
@@ -24,6 +28,7 @@ DATABASES = {
     }
 }
 ```
+- Datbase Migration
 ```bash
 # Go to you working directory on terminal/cmd
 $ cd _workingdirectory_
@@ -33,6 +38,9 @@ $ cd _workingdirectory_
 $Python manage.py makemigrations
 # Migrate Database
 $Python manage.py migrate
+```
+- Run Server
+```bash
 # Run django server
 $python manage.py runserver
 ```
