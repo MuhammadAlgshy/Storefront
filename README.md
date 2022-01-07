@@ -39,11 +39,16 @@ $Python manage.py makemigrations
 # Migrate Database
 $Python manage.py migrate
 ```
+- Create Admin user
+```bash
+$ python manage.py createsuperuser
+```
 - Run Server
 ```bash
 # Run django server
 $python manage.py runserver
 ```
+- Login to admin area, open Browser and go to: http://127.0.0.1:8000/admin/
 - Check the list of available APIs, open Browser and go to: http://127.0.0.1:8000/store/
 
 Enjoy the experiance.
