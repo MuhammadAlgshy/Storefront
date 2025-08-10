@@ -1,27 +1,28 @@
-# Use official Python image as base
 FROM python:3.10-slim
+
+# Install build dependencies for compiling uWSGI and other packages with C extensions
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
 ENV DJANGO_SETTINGS_MODULE=storefront.settings
 ENV PYTHONUNBUFFERED=1
 
-# Set work directory inside the container
 WORKDIR /app
 
-# Install dependencies
 COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copy project files
 COPY . /app/
 
-# Collect static files (optional, depends if you use static files)
 RUN python manage.py collectstatic --noinput
+RUN python manage.py shell < dummydata.py
 
-# Expose port 8000
+
 EXPOSE 8000
 
-# Run the Django app
-CMD ["gunicorn", "storefront.wsgi:application", "--bind", "0.0.0.0:8000"]
-
+CMD ["uwsgi", "--http", "0.0.0.0:8000", "--module", "storefront.wsgi:application", "--master", "--processes", "4", "--threads", "2"]
