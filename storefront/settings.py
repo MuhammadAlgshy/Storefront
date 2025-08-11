@@ -172,41 +172,38 @@ if DEBUG:
 AUTH_USER_MODEL = 'core.User'
 
 
+# Make sure logs directory exists
+LOG_DIR = BASE_DIR / 'logs'
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-
     'formatters': {
         'verbose': {
             'format': '[{asctime}] {levelname} [{name}:{lineno}] {message}',
             'style': '{',
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
     },
-
     'handlers': {
-        'info_file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/info.log'),
-            'formatter': 'verbose',
-        },
         'error_file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/errors.log'),
+            'filename': str(LOG_DIR / 'errors.log'),
+            'formatter': 'verbose',
+        },
+        'info_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': str(LOG_DIR / 'info.log'),
             'formatter': 'verbose',
         },
     },
-
     'loggers': {
         'django': {
             'handlers': ['info_file', 'error_file'],
             'level': 'INFO',
             'propagate': True,
-        },
+        },  
     }
 }
