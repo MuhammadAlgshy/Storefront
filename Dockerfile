@@ -23,6 +23,10 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py shell < dummydata.py
 
 
-EXPOSE 8000
+EXPOSE 8080
 
-CMD ["uwsgi", "--http", "0.0.0.0:8000", "--module", "storefront.wsgi:application", "--master", "--processes", "4", "--threads", "2"]
+LABEL io.openshift.expose-services 8080/http
+
+USER 1001
+
+CMD ["uwsgi", "--http", "0.0.0.0:8080", "--module", "storefront.wsgi:application", "--master", "--processes", "4", "--threads", "2"]
