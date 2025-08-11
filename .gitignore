@@ -4,6 +4,5 @@ storefront/lib64/
 storefront/pyvenv.cfg
 storefront/include
 staticfiles
-logs/
 logs/*
 

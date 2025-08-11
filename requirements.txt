@@ -35,3 +35,4 @@ uritemplate==4.2.0
 urllib3==2.5.0
 uWSGI==2.0.30
 whitenoise==6.9.0
+ sh -c "uwsgi --http 0.0.0.0:8080 --module storefront.wsgi:application --master --processes 4 --threads 2"
