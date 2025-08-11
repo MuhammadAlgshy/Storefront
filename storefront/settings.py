@@ -127,8 +127,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
-# CSRF_COOKIE_SECURE=True
-# SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE=True
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -170,3 +170,43 @@ if DEBUG:
         'INTERCEPT_REDIRECTS': False,
     }
 AUTH_USER_MODEL = 'core.User'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} [{name}:{lineno}] {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+        'info_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/info.log'),
+            'formatter': 'verbose',
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/errors.log'),
+            'formatter': 'verbose',
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['info_file', 'error_file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    }
+}

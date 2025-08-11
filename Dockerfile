@@ -25,8 +25,10 @@ RUN python manage.py shell < dummydata.py
 
 EXPOSE 8080
 
-LABEL io.openshift.expose-services 8080/http
+LABEL io.openshift.expose-services="8080/http"
 
 USER 1001
+
+RUN mkdir -p /app/logs && chmod 755 /app/logs
 
 CMD ["uwsgi", "--http", "0.0.0.0:8080", "--module", "storefront.wsgi:application", "--master", "--processes", "4", "--threads", "2"]
